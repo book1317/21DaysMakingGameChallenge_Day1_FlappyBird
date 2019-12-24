@@ -1,1 +1,3 @@
-# 21DaysMakingGameChallenge_Day1_FlappyBird
+# 21-Day Making Unity Game Challenge
+Day1:FlappyBird
+https://book1317.github.io/unity-flappybird/
