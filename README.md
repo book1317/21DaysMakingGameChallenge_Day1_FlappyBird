@@ -7,7 +7,7 @@ This is a challenge in creating games to improve my skills.
  
 Press "space" or click to jump
 
-Let's play : https://book1317.github.io/unity-flappybird/
+**Let's play : https://book1317.github.io/unity-flappybird/**
 
 ## Other Projects
 
