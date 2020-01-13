@@ -9,7 +9,7 @@ Press "space" or click to jump
 
 Let's play : https://book1317.github.io/unity-flappybird/
 
-## Other Projects
+**Other Projects**
 
 * Day1 - FlappyBird : https://github.com/book1317/unity-flappybird
 * Day2 - PacMan(incomplete) : https://github.com/book1317/unity-pacman
