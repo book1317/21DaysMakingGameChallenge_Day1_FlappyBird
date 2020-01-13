@@ -9,12 +9,14 @@ Press "space" or click to jump
 
 Let's play : https://book1317.github.io/unity-flappybird/
 
-**Other Projects**
+## Other Projects
 
-* Day1 - FlappyBird : https://github.com/book1317/unity-flappybird
-* Day2 - PacMan(incomplete) : https://github.com/book1317/unity-pacman
-* Day3 - TicTacToe : https://github.com/book1317/unity-tictactoe
-* Day4 - FillMaze : https://github.com/book1317/unity-fillmaze
-* Day5 - Connect : https://github.com/book1317/unity-connect
-* Day6 - T-RexRun : https://github.com/book1317/unity-trexrun
-* Day7 - Snake(incomplete) : https://github.com/book1317/unity-snake
+* Day1 : <a href="https://github.com/book1317/unity-flappybird" target="_blank">**FlappyBird**</a>
+* Day2 : <a href="https://github.com/book1317/unity-pacman" target="_blank">**PacMan(incomplete)**</a>
+* Day3 : <a href="https://github.com/book1317/unity-tictactoe" target="_blank">**TicTacToe**</a>
+* Day4 : <a href="https://github.com/book1317/unity-fillmaze" target="_blank">**FillMaze**</a>
+* Day5 : <a href="https://github.com/book1317/unity-connect" target="_blank">**Connect**</a>
+* Day6 : <a href="https://github.com/book1317/unity-trexrun" target="_blank">**T-RexRun**</a>
+* Day7 : <a href="https://github.com/book1317/unity-snake" target="_blank">**Snake(incomplete)**</a>
+
+
