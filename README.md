@@ -5,6 +5,8 @@ This is a challenge in creating games to improve my skills.
 
  ## Day1 : FlappyBird
  
+  ![GitHub Logo](/images/image1.png)
+  
 Press "space" or click to jump
 
 **Let's play : https://book1317.github.io/unity-flappybird/**
