@@ -17,7 +17,7 @@ Press "space" or click to jump
 * Day4 : <a href="https://github.com/book1317/unity-fillmaze" target="_blank">**FillMaze**</a>
 * Day5 : <a href="https://github.com/book1317/unity-connect" target="_blank">**Connect**</a>
 * Day6 : <a href="https://github.com/book1317/unity-trexrun" target="_blank">**T-RexRun**</a>
-* Day7 : <a href="https://github.com/book1317/unity-snake" target="_blank">**Snake(incomplete)**</a>
+* Day7 : <a href="https://github.com/book1317/unity-snake" target="_blank">**Snake**</a>
 * Day8 : <a href="https://github.com/book1317/unity-numberpuzzle" target="_blank">**NumberPuzzle**</a>
 
 
