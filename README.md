@@ -23,6 +23,6 @@ Press "space" or click to jump
 * Day8 : <a href="https://github.com/book1317/unity-numberpuzzle" target="_blank">**NumberPuzzle**</a>
 * Day9 : <a href="https://github.com/book1317/unity-checkers" target="_blank">**Checkers**</a>
 * Day10 : <a href="https://github.com/book1317/unity-breakout" target="_blank">**BreakOut**</a>
-* Day11 : <a href="https://github.com/book1317/unity-samegame/settings" target="_blank">**SameGame**</a>
+* Day11 : <a href="https://github.com/book1317/unity-samegame" target="_blank">**SameGame**</a>
 
 
