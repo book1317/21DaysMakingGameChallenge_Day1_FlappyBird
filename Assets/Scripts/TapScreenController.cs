@@ -8,11 +8,11 @@ public class TapScreenController : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-        if (theLevel.isStart)
+        if (theLevel.gameState == LevelController.GameState.Playing)
         {
             thePlayer.Jump();
         }
-        else if (!theLevel.isStart)
+        else if (theLevel.gameState == LevelController.GameState.MainMenu)
         {
             theLevel.StartGame();
         }

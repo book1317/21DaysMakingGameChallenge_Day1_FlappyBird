@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,15 +12,18 @@ public class PlayerController : MonoBehaviour
     public int minflipFaceVelocity = 2;
     public int maxflipFaceVelocity = 4;
     public bool headUp = false;
+    private Animator theAnime;
+
     void Start()
     {
+        theAnime = GetComponent<Animator>();
         myRigidbody.velocity = Vector3.zero;
         myRigidbody.isKinematic = true;
     }
 
     void Update()
     {
-        if (theLevel.isStart)
+        if (theLevel.gameState == LevelController.GameState.Playing)
         {
             if (Input.anyKey)
             {
@@ -47,6 +49,12 @@ public class PlayerController : MonoBehaviour
                 flipAngle = Mathf.Abs((minflipFaceVelocity - myRigidbody.velocity.y) / (maxflipFaceVelocity - minflipFaceVelocity) * (maxFlipFaceAngle - minFlipFaceAngle)) + minFlipFaceAngle;
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, flipAngle);
             }
+
+        }
+        else if (theLevel.gameState == LevelController.GameState.GameOver)
+        {
+            if (transform.eulerAngles.z >= 270 || transform.eulerAngles.z < 30)
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z - 5f);
         }
     }
 
@@ -68,14 +76,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Death()
+    void OnCollisionEnter2D(Collision2D other)
     {
-        Reset();
+        if (other.transform.CompareTag("Pipe"))
+            Death();
     }
 
-    void Reset()
+    void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y - 2f);
+        StartCoroutine(theLevel.GameOver());
+        theAnime.enabled = false;
     }
 
     public void Play()

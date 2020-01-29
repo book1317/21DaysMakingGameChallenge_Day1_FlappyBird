@@ -13,7 +13,7 @@ public class PipeGenerator : MonoBehaviour
 
     void Update()
     {
-        if (theLevel.isStart)
+        if (theLevel.gameState == LevelController.GameState.Playing)
         {
             if (pipeGenerateCounter >= 0)
                 pipeGenerateCounter -= Time.fixedDeltaTime;
@@ -28,11 +28,11 @@ public class PipeGenerator : MonoBehaviour
     void CreatePipe()
     {
         float randomY = Random.Range(-spawnPositionY, spawnPositionY);
-        //Debug.Log(randomY);
         GameObject thePipeObject = Instantiate(PipePrefab, new Vector3(maxPipePos, randomY, transform.position.z), Quaternion.identity);
         thePipeObject.transform.SetParent(this.transform);
         PipeController thePipe = thePipeObject.GetComponent<PipeController>();
         thePipe.minPipePos = minPipePos;
+        theLevel.allPipe.Add(thePipe);
     }
 
 }
