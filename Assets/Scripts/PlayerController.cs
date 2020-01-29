@@ -84,14 +84,25 @@ public class PlayerController : MonoBehaviour
 
     void Death()
     {
-        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y - 2f);
-        StartCoroutine(theLevel.GameOver());
-        theAnime.enabled = false;
+        if (theLevel.gameState == LevelController.GameState.Playing)
+        {
+            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y - 2f);
+            StartCoroutine(theLevel.GameOver());
+            theAnime.enabled = false;
+        }
     }
 
     public void Play()
     {
         myRigidbody.isKinematic = false;
         Jump();
+    }
+
+    public void Reset()
+    {
+        myRigidbody.isKinematic = true;
+        transform.position = new Vector3(0, 0, -2);
+        transform.eulerAngles = Vector3.zero;
+        theAnime.enabled = true;
     }
 }

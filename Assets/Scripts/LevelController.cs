@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     public int score = 0;
+    private int hightScore = 0;
     [SerializeField] private Text scoreText;
     [SerializeField] private PlayerController thePlayer;
     public float mapMovingSpeed = 0.05f;
@@ -18,6 +19,8 @@ public class LevelController : MonoBehaviour
     }
     public GameState gameState = GameState.MainMenu;
     public GameObject gameOverScreen;
+    public Text gameOverScoreText;
+    public Text gameOverHightScoreText;
 
     void Update()
     {
@@ -39,10 +42,10 @@ public class LevelController : MonoBehaviour
     public void IncreasScore(int addScore)
     {
         score += addScore;
-        UpdateScoreText();
+        UpdateScoreText(scoreText, score);
     }
 
-    void UpdateScoreText()
+    void UpdateScoreText(Text scoreText, int score)
     {
         scoreText.text = score + "";
     }
@@ -54,13 +57,32 @@ public class LevelController : MonoBehaviour
             allPipe[i].canMove = false;
         for (int i = 0; i < allGround.Count; i++)
             allGround[i].canMove = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         gameOverScreen.SetActive(true);
-
+        if (score > hightScore)
+        {
+            UpdateScoreText(gameOverHightScoreText, score);
+            hightScore = score;
+        }
+        UpdateScoreText(gameOverScoreText, score);
     }
 
     public void Reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOverScreen.SetActive(false);
+        gameState = GameState.GameOver;
+        for (int i = 0; i < allPipe.Count; i++)
+        {
+            Destroy(allPipe[i].gameObject);
+        }
+        allPipe = new List<PipeController>();
+        for (int i = 0; i < allGround.Count; i++)
+            allGround[i].canMove = true;
+        score = 0;
+        UpdateScoreText(scoreText, score);
+        thePlayer.Reset();
+        gameState = GameState.MainMenu;
+
     }
 }
