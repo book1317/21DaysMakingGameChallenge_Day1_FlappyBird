@@ -21,6 +21,7 @@ public class LevelController : MonoBehaviour
     public GameObject gameOverScreen;
     public Text gameOverScoreText;
     public Text gameOverHightScoreText;
+    public GameObject startScreen;
 
     void Update()
     {
@@ -35,6 +36,7 @@ public class LevelController : MonoBehaviour
 
     public void StartGame()
     {
+        startScreen.GetComponent<Animator>().SetTrigger("FadeOut");
         gameState = GameState.Playing;
         thePlayer.Play();
     }
@@ -83,6 +85,7 @@ public class LevelController : MonoBehaviour
         UpdateScoreText(scoreText, score);
         thePlayer.Reset();
         gameState = GameState.MainMenu;
+        startScreen.GetComponent<Animator>().SetTrigger("FadeIn");
 
     }
 }
