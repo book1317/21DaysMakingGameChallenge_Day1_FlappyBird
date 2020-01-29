@@ -6,9 +6,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D myRigidbody;
     [SerializeField] LevelController theLevel;
     public float jumpForce = 5;
-    public int maxFlipFaceAngle = 20;
+    public float maxFlipFaceAngle = 25;
+    public float minFlipFaceAngle = -65;
+    private float lastFlipFaceAngle = -65;
     private float flipAngle;
-    public int minMaxflipFaceVelocity = 4;
+    public int minflipFaceVelocity = 2;
+    public int maxflipFaceVelocity = 4;
+    public bool headUp = false;
     void Start()
     {
         myRigidbody.velocity = Vector3.zero;
@@ -27,9 +31,20 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (myRigidbody.velocity.y > -minMaxflipFaceVelocity && myRigidbody.velocity.y < minMaxflipFaceVelocity)
+            if (headUp)
             {
-                flipAngle = myRigidbody.velocity.y / minMaxflipFaceVelocity * maxFlipFaceAngle;
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 5f);
+                if (transform.eulerAngles.z >= maxFlipFaceAngle || myRigidbody.velocity.y < maxflipFaceVelocity)
+                    headUp = false;
+            }
+            else if (myRigidbody.velocity.y >= maxflipFaceVelocity)
+            {
+                flipAngle = 25.0f;
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, flipAngle);
+            }
+            else if (myRigidbody.velocity.y > minflipFaceVelocity)
+            {
+                flipAngle = Mathf.Abs((minflipFaceVelocity - myRigidbody.velocity.y) / (maxflipFaceVelocity - minflipFaceVelocity) * (maxFlipFaceAngle - minFlipFaceAngle)) + minFlipFaceAngle;
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, flipAngle);
             }
         }
@@ -38,6 +53,8 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         myRigidbody.velocity = new Vector3(0, jumpForce, 0);
+        lastFlipFaceAngle = transform.eulerAngles.z;
+        headUp = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)

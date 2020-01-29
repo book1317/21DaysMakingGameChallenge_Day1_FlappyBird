@@ -28,7 +28,7 @@ public class PipeGenerator : MonoBehaviour
     void CreatePipe()
     {
         float randomY = Random.Range(-spawnPositionY, spawnPositionY);
-        Debug.Log(randomY);
+        //Debug.Log(randomY);
         GameObject thePipeObject = Instantiate(PipePrefab, new Vector3(maxPipePos, randomY, transform.position.z), Quaternion.identity);
         thePipeObject.transform.SetParent(this.transform);
         PipeController thePipe = thePipeObject.GetComponent<PipeController>();
