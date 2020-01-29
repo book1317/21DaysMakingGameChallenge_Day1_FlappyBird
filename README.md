@@ -5,7 +5,9 @@ This is a challenge in creating games to improve my skills.
 
  ## Day1 : FlappyBird
  
-  ![GitHub Logo](/images/image1.png)
+  <a href="https://book1317.github.io/unity-flappybird">
+ <img src="/images/Image1.png" />
+  </a>
   
 Press "space" or click to jump
 
