@@ -88,4 +88,9 @@ public class LevelController : MonoBehaviour
         startScreen.GetComponent<Animator>().SetTrigger("FadeIn");
 
     }
+
+    public void Reset()
+    {
+
+    }
 }
